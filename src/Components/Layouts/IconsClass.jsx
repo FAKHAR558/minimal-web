@@ -9,28 +9,57 @@ import TroubleshootIcon from "@mui/icons-material/Troubleshoot";
 import MailIcon from "@mui/icons-material/Mail";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import { CustomGrid, IconBox, IconsText } from "./custom";
-import { Box, IconButton, Typography } from "@mui/material";
+import {
+  CustomGrid,
+  CustomIconButton,
+  IconBox,
+  IconsText,
+  ShortIconBox,
+} from "./custom";
+import { Box, IconButton, Typography, Menu, MenuItem } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 export default function IconsClass() {
+  const navigate = useNavigate();
   const [arrowDirection, setArrowDirection] = useState(true);
+  const [] = useState();
+  // Menue Code
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = (value) => {
+    navigate(value);
+    setAnchorEl(null);
+  };
+
+  //end Menu Code
   return (
     <>
       {arrowDirection ? (
         <CustomGrid
           item
-          xs={0.6}
+          xs={0.8}
           sx={{
             display: "flex",
-            background: "green",
             height: "100vh",
             flexDirection: "column",
-            justifyContent: "space-around",
             alignItems: "center",
-            paddingTop: "3rem",
+            // marginTop: "10vh",
+            paddingTop: "2.5rem",
+
+            borderRight: "0.1px dashed grey",
+            background: "#F9FAFB",
           }}
         >
           <IconButton
-            sx={{ alignSelf: "flex-end", marginRight: "-1.5rem" }}
+            sx={{
+              alignSelf: "flex-end",
+              marginRight: "-1.5rem",
+              marginTop: "1.7rem",
+              borderRadius: "10rem",
+              // border: "0.1px dashed  grey",
+            }}
             onClick={() => setArrowDirection(!arrowDirection)}
           >
             {arrowDirection ? (
@@ -39,30 +68,92 @@ export default function IconsClass() {
               <ArrowBackIosNewIcon fontSize="small"></ArrowBackIosNewIcon>
             )}
           </IconButton>
-          <IconButton>
-            <AccountBalanceIcon fontSize="medium"></AccountBalanceIcon>
-          </IconButton>
-          <IconButton>
-            <ShoppingBagIcon fontSize="medium"></ShoppingBagIcon>
-          </IconButton>
-          <IconButton>
-            <InsertDriveFileIcon fontSize="medium"></InsertDriveFileIcon>
-          </IconButton>
-          <IconButton>
-            <AccountBoxIcon fontSize="medium"></AccountBoxIcon>
-          </IconButton>
-          <IconButton>
-            <DryCleaningIcon fontSize="medium"></DryCleaningIcon>
-          </IconButton>
-          <IconButton>
-            <ShoppingCartIcon fontSize="medium"></ShoppingCartIcon>
-          </IconButton>
-          <IconButton>
-            <MailIcon fontSize="medium"></MailIcon>
-          </IconButton>
-          <IconButton>
-            <TroubleshootIcon fontSize="medium"></TroubleshootIcon>
-          </IconButton>
+          <ShortIconBox>
+            <CustomIconButton>
+              <AccountBalanceIcon fontSize="medium"></AccountBalanceIcon>
+              <Typography>Banking</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton>
+              <ShoppingBagIcon fontSize="medium"></ShoppingBagIcon>
+              <Typography>E-Commerce</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton>
+              <InsertDriveFileIcon fontSize="medium"></InsertDriveFileIcon>
+              <Typography>Explore File</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton>
+              <AccountBoxIcon fontSize="medium"></AccountBoxIcon>
+              <Typography>User</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton
+              id="basic-button"
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              // onClick={handleClick}
+              onMouseOver={handleClick}
+            >
+              <DryCleaningIcon fontSize="medium"></DryCleaningIcon>
+              <Typography>Product</Typography>
+            </CustomIconButton>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={() => navigate("")}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+              anchorOrigin={{
+                vertical: "center",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "center",
+                horizontal: "1",
+              }}
+            >
+              <MenuItem
+                onClick={() => {
+                  handleClose("list");
+                }}
+              >
+                List
+              </MenuItem>
+              <MenuItem onClick={() => handleClose("details")}>
+                Details
+              </MenuItem>
+              <MenuItem onClick={() => handleClose("create")}>Create</MenuItem>
+              <MenuItem onClick={() => handleClose("edit")}>Edit</MenuItem>
+            </Menu>
+          </ShortIconBox>
+
+          <ShortIconBox>
+            <CustomIconButton>
+              <ShoppingCartIcon fontSize="medium"></ShoppingCartIcon>
+              <Typography>Store</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton>
+              <MailIcon fontSize="medium"></MailIcon>
+              <Typography>E-Commerce</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
+          <ShortIconBox>
+            <CustomIconButton>
+              <TroubleshootIcon fontSize="medium"></TroubleshootIcon>
+              <Typography>Invoice</Typography>
+            </CustomIconButton>
+          </ShortIconBox>
         </CustomGrid>
       ) : (
         <CustomGrid
@@ -70,7 +161,9 @@ export default function IconsClass() {
           xs={2}
           sx={{
             display: "flex",
-            background: "green",
+            borderRight: "0.1px dashed grey",
+
+            background: "#F9FAFB",
             height: "100vh",
             flexDirection: "column",
             justifyContent: "space-around",
@@ -88,50 +181,54 @@ export default function IconsClass() {
               <ArrowBackIosNewIcon fontSize="small"></ArrowBackIosNewIcon>
             )}
           </IconButton>
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <AccountBalanceIcon fontSize="medium"></AccountBalanceIcon>
-            </IconButton>
-            <IconsText>Banking</IconsText>
+              <IconsText>Banking</IconsText>
+            </CustomIconButton>
           </IconBox>
 
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <ShoppingBagIcon fontSize="medium"></ShoppingBagIcon>
-            </IconButton>
-            <IconsText>E-Commerce</IconsText>
+              <IconsText>E-Commerce</IconsText>
+            </CustomIconButton>
           </IconBox>
 
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <InsertDriveFileIcon fontSize="medium"></InsertDriveFileIcon>
-            </IconButton>
-            <IconsText>File</IconsText>
+              <IconsText>File</IconsText>
+            </CustomIconButton>
           </IconBox>
 
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <MailIcon fontSize="medium"></MailIcon>
-            </IconButton>
-            <IconsText>Mail Us</IconsText>
+              <IconsText>Mail Us</IconsText>
+            </CustomIconButton>
           </IconBox>
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <DryCleaningIcon fontSize="medium"></DryCleaningIcon>
-            </IconButton>
-            <IconsText>Products</IconsText>
+              <IconsText>Products</IconsText>
+              <ArrowForwardIosIcon
+                fontSize="small"
+                sx={{ marginLeft: "3rem" }}
+              ></ArrowForwardIosIcon>
+            </CustomIconButton>
           </IconBox>
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <ShoppingCartIcon fontSize="medium"></ShoppingCartIcon>
-            </IconButton>
-            <IconsText>Store</IconsText>
+              <IconsText>Store</IconsText>
+            </CustomIconButton>
           </IconBox>
-          <IconBox sx={{ background: "#F4F6F8" }}>
-            <IconButton>
+          <IconBox>
+            <CustomIconButton>
               <TroubleshootIcon fontSize="medium"></TroubleshootIcon>{" "}
-            </IconButton>
-            <IconsText>Invoice</IconsText>
+              <IconsText>Invoice</IconsText>
+            </CustomIconButton>
           </IconBox>
         </CustomGrid>
       )}

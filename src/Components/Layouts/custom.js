@@ -1,4 +1,11 @@
-import { Box, Button, Grid, TextField, styled } from "@mui/material";
+import {
+  Box,
+  Button,
+  Grid,
+  IconButton,
+  TextField,
+  styled,
+} from "@mui/material";
 
 export const CustomMainPage = styled("div")({
   display: "flex",
@@ -25,7 +32,7 @@ export const CustomText = styled("p")({
   color: "black",
   fontFamily: "public Sans",
   fontWeight: "300",
-  fontSize: "0.875rem",
+  fontSize: "0.995rem",
 });
 export const CustomButton = styled(Button)({
   height: "2.9rem",
@@ -56,8 +63,6 @@ export const AlertBox = styled("div")({
 });
 export const CustomGrid = styled(Grid)({
   display: "flex",
-  // alignItems: "center",
-  // justifyContent: "center",
 });
 export const IconBox = styled(Box)({
   display: "flex",
@@ -65,6 +70,7 @@ export const IconBox = styled(Box)({
   height: "3rem",
   marginRight: "1rem",
   borderRadius: "5px",
+  background: "#DFE3E8",
 });
 export const IconsText = styled("p")({
   color: "black",
@@ -72,4 +78,19 @@ export const IconsText = styled("p")({
   fontSize: "1rem",
   fontWeight: "800",
   marginLeft: "2rem",
+});
+export const ShortIconBox = styled(Box)({
+  display: "flex",
+  flexDirection: "column",
+  // alignItems: "center",
+  marginTop: ".8rem",
+  width: "100%",
+  // background: "#F4F6F8",
+});
+export const CustomIconButton = styled(IconButton)({
+  width: "100%",
+  height: "100%",
+  borderRadius: "0",
+  flexDirection: "inherit",
+  justifyContent: "flex-start",
 });
