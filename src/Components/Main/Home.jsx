@@ -1,38 +1,46 @@
-import React from "react";
-import { Grid, IconButton, Typography } from "@mui/material";
+import React, { useState } from "react";
+import { Grid, IconButton } from "@mui/material";
 import { CustomGrid } from "../Layouts/custom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import IconsClass from "../Layouts/IconsClass";
-import HomeLayout from "../Layouts/HomeLayout";
 import { Outlet } from "react-router-dom";
+import DropDown from "../Layouts/DropDown";
 
 export default function Home() {
+  const [dropDown, setDropDown] = useState(false);
   return (
     <>
       <Grid container>
         <IconsClass />
-        <Grid item xs sx={{ background: "aqua" }}>
+        <Grid item xs>
           <CustomGrid
             item
             xs={12}
             sx={{
+              position: "sticky",
+              top: "0",
+              zIndex: "999",
+
               alignItems: "center",
               background: "white",
               height: "10vh",
               justifyContent: "end",
               paddingRight: "4rem",
-
-              borderBottom: "0.5px dashed black",
+              // borderBottom: "0.5px dashed black",
+              // backgroundColor: "orange",
+              opacity: "0.95",
             }}
           >
-            <AccountCircleIcon></AccountCircleIcon>
+            <IconButton onClick={() => setDropDown(!dropDown)}>
+              <AccountCircleIcon></AccountCircleIcon>
+            </IconButton>
           </CustomGrid>
+          {dropDown ? <DropDown /> : null}
           <Grid
             item
             xs
             sx={{
-              background: "orange",
-              height: "90vh",
+              minHeight: "90vh",
               padding: "0 2rem",
             }}
           >
@@ -43,19 +51,3 @@ export default function Home() {
     </>
   );
 }
-
-// <CustomGrid
-//             item
-//             xs={12}
-//             sx={{
-//               alignItems: "center",
-//               background: "white",
-//               height: "10vh",
-//               justifyContent: "end",
-//               paddingRight: "4rem",
-
-//               borderBottom: "0.5px dashed black",
-//             }}
-//           >
-//             <AccountCircleIcon></AccountCircleIcon>
-//           </CustomGrid>

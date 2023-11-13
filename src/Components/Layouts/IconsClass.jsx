@@ -12,10 +12,12 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import {
   CustomGrid,
   CustomIconButton,
+  CustomImg,
   IconBox,
   IconsText,
   ShortIconBox,
 } from "./custom";
+import detimg from "../../assets/detimg.jpg";
 import { Box, IconButton, Typography, Menu, MenuItem } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 export default function IconsClass() {
@@ -41,22 +43,37 @@ export default function IconsClass() {
           item
           xs={0.8}
           sx={{
-            display: "flex",
+            position: "sticky",
+            left: "0",
+            top: "0",
+            display: {
+              xs: "none",
+              sm: "flex",
+            },
             height: "100vh",
             flexDirection: "column",
             alignItems: "center",
             // marginTop: "10vh",
-            paddingTop: "2.5rem",
+            paddingTop: "1rem",
 
-            borderRight: "0.1px dashed grey",
+            borderRight: "0.01px dashed grey",
             background: "#F9FAFB",
+            // backgroundColor: "orange",
           }}
         >
+          <Box
+            sx={{
+              // background: "blue",
+              width: "50px",
+            }}
+          >
+            <CustomImg src={detimg} />
+          </Box>
           <IconButton
             sx={{
               alignSelf: "flex-end",
               marginRight: "-1.5rem",
-              marginTop: "1.7rem",
+              // marginTop: "1.7rem",
               borderRadius: "10rem",
               // border: "0.1px dashed  grey",
             }}
@@ -98,8 +115,7 @@ export default function IconsClass() {
               aria-controls={open ? "basic-menu" : undefined}
               aria-haspopup="true"
               aria-expanded={open ? "true" : undefined}
-              // onClick={handleClick}
-              onMouseOver={handleClick}
+              onClick={handleClick}
             >
               <DryCleaningIcon fontSize="medium"></DryCleaningIcon>
               <Typography>Product</Typography>
@@ -149,10 +165,10 @@ export default function IconsClass() {
             </CustomIconButton>
           </ShortIconBox>
           <ShortIconBox>
-            <CustomIconButton>
+            {/* <CustomIconButton>
               <TroubleshootIcon fontSize="medium"></TroubleshootIcon>
               <Typography>Invoice</Typography>
-            </CustomIconButton>
+            </CustomIconButton> */}
           </ShortIconBox>
         </CustomGrid>
       ) : (
@@ -160,19 +176,39 @@ export default function IconsClass() {
           item
           xs={2}
           sx={{
-            display: "flex",
+            position: "sticky",
+            left: "0",
+            top: "0",
+            // marginRight: "10rem",
+            display: {
+              xs: "none",
+              md: "flex",
+            },
             borderRight: "0.1px dashed grey",
-
             background: "#F9FAFB",
+            // backgroundColor: "orange",
             height: "100vh",
             flexDirection: "column",
             justifyContent: "space-around",
-            paddingTop: "3rem",
+            // paddingTop: "1rem",
             paddingLeft: "1.5rem",
           }}
         >
+          <Box
+            sx={{
+              // background: "blue",
+              width: "50px",
+            }}
+          >
+            <CustomImg src={detimg} />
+          </Box>
           <IconButton
-            sx={{ alignSelf: "flex-end", marginRight: "-1.5rem" }}
+            sx={{
+              alignSelf: "flex-end",
+              marginRight: "-1.5rem",
+              marginTop: "-2.7rem",
+              // paddingTop: "-10rem",
+            }}
             onClick={() => setArrowDirection(!arrowDirection)}
           >
             {arrowDirection ? (

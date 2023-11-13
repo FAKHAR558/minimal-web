@@ -1,53 +1,88 @@
 {
   "products": [
     {
-      "id": 1,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "yes"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 2
     },
     {
-      "id": 2,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "yes"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 3
     },
     {
-      "id": 3,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "No"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 4
     },
     {
-      "id": 4,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "yes"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 5
     },
     {
-      "id": 5,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "No"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 6
     },
     {
-      "id": 6,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "No"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 7
     },
     {
-      "id": 7,
-      "product": "Mobile",
-      "date": 12,
-      "price": 1000,
-      "publish": "yes"
+      "product": [
+        "Bata"
+      ],
+      "price": [
+        "123"
+      ],
+      "publish": [
+        "No"
+      ],
+      "id": 8
     }
   ]
 }

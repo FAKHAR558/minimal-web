@@ -94,3 +94,16 @@ export const CustomIconButton = styled(IconButton)({
   flexDirection: "inherit",
   justifyContent: "flex-start",
 });
+export const CustomDiv = styled("div")({
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "24px",
+  width: "48px",
+  color: "rgb(0, 108, 156)",
+  background: "rgba(0, 184, 217, 0.16)",
+  borderRadius: "6px",
+  fontSize: "0.75rem",
+  fontWeight: "700",
+  letterSpacing: "1px",
+});
